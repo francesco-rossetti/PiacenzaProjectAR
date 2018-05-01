@@ -1,0 +1,14 @@
+{
+  "name": "projectar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {},
+  "author": "Francesco Rossetti, Alex Ergasti",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "hapi-auth-basic": "^4.2.0",
+    "tedious": "^2.3.1"
+  }
+}
