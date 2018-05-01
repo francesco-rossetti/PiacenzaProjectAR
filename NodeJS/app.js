@@ -1,9 +1,10 @@
 var config = {
-    userName: "sa",
-    password: ".",
-    server: "127.0.0.1",
+    userName: "Rossetti",
+    password: "password.123",
+    server: "rossettiesercitazioni.database.windows.net",
     options: {
-        database: "PROJECTAR"
+        database: "projectAR",
+        encrypt: true
     }
 };
 
@@ -55,7 +56,7 @@ const validate = function(request, username, password, callback){
 /* ROUTE SERVER */
 
 server.route({
-    method: "POST",
+    method: "GET",
     path: "/api/getMonumentName",
     handler:function(request, reply){
         var Response = [];
@@ -63,23 +64,21 @@ server.route({
 
         connection.on("connect", function(err){
             if(err)
-                reply([{ status: "ko", result: "Err002" }]);
+                reply({ status: "ko", result: err });
             else
             {
                 var idmon = null;
                 var Request = new Requests("EXEC GETMONUMENTITILE @ID", function(err, rowcount){
                     var Response = [];
                     if(err)
-                        Response.push({ status: "ko", result: err });
+                        reply({ status: "ko", result: err });
                     else
                     {
                         if(rowcount == 0)
-                            Response.push({ status: "ok", result: "Err002" });
+                            reply({ status: "ok", result: "Err002" });
                         else
-                            Response.push({ status: "ok", result: idmon});
+                            reply({ status: "ok", result: idmon });
                     }
-        
-                    reply(Response);
                 });
 
                 Request.on("row", function(col){
@@ -88,7 +87,7 @@ server.route({
                     });
                 });
         
-                Request.addParameter("ID", Types.Int, request.payload.idmon);
+                Request.addParameter("ID", Types.Int, request.query.idmon);
             
                 connection.execSql(Request);
             }
@@ -97,48 +96,43 @@ server.route({
 });
 
 server.route({
-    method: "POST",
+    method: "GET",
     path: "/api/getField",
     handler:function(request, reply){
-        var Response = [];
         var connection = new Connection(config);
 
         connection.on("connect", function(err){
             if(err)
-                reply([{ status: "ko", result: "Err003" }]);
+                reply({ Field: { status: "ko", result: err }});
             else
             {
                 var fid = [];
                 var Request = new Requests("EXEC GETARRAYVALORI @ID, @LANG", function(err, rowcount){
-                    var Response = [];
                     if(err)
-                        Response.push({ status: "ko", result: err });
+                        reply({ status: "ko", result: err });
                     else
                     {
                         if(rowcount == 0)
-                            Response.push({ status: "ok", result: "Err003" });
+                            reply({ status: "ok", result: "Err003" });
                         else
-                            Response.push({ status: "ok", result: fid});
+                            reply({ status: "ok", result: fid });
                     }
-        
-                    reply(Response);
                 });
 
                 Request.on("row", function(col){
                     var Row = {};
-                    var fieid = -1;
                     col.forEach(function(elem){
                         if(elem.metadata.colName == "FIELD")
-                            fieid = elem.value;
+                            Row["key"] = elem.value;
                         else
-                            Row["field_" + fieid] = elem.value;
+                            Row["value"] = elem.value;
                     });
 
                     fid.push(Row);
                 });
         
-                Request.addParameter("ID", Types.Int, request.payload.idmon);
-                Request.addParameter("LANG", Types.VarChar, request.payload.lang);
+                Request.addParameter("ID", Types.Int, request.query.idmon);
+                Request.addParameter("LANG", Types.VarChar, request.query.lang);
             
                 connection.execSql(Request);
             }
