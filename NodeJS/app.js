@@ -1,6 +1,6 @@
 var config = {
     userName: "sa",
-    password: "Potter199800",
+    password: ".",
     server: "127.0.0.1",
     options: {
         database: "PROJECTAR"
