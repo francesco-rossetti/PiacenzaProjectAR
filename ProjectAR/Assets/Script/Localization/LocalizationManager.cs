@@ -31,15 +31,18 @@ public class LocalizationManager : MonoBehaviour
 
         }
 
-        string Path = "language_" + PlayerPrefs.GetString("Language") + ".json";
         Debug.Log(PlayerPrefs.GetString("Language"));
-        LoadLocalizedText(Path);
+        LoadLocalizedText();
         DontDestroyOnLoad(gameObject);
     }
-    public void LoadLocalizedText(string fileName)  //Load the file with all the translated text
+    public void LoadLocalizedText()  //Load the file with all the translated text
     {
+        isReady = false;
+        string fileName = "language_" + PlayerPrefs.GetString("Language") + ".json";
         localizedText = new Dictionary<string, string>();
-        string filepath = Application.streamingAssetsPath + "/" + fileName;// Path.Combine("jar:file://" + Application.dataPath + "!/assets/",fileName);
+
+#if UNITY_EDITOR
+        string filepath = Application.streamingAssetsPath + "/" + fileName;
         if (File.Exists(filepath)) //Check if the file with language exists
         {
             string dataAsJson = File.ReadAllText(filepath);
@@ -57,6 +60,24 @@ public class LocalizationManager : MonoBehaviour
             Debug.LogError("Cannot find file");
             Debug.LogError(filepath);
         }
+#elif UNITY_ANDROID
+        Debug.Log("Ok");
+        string filepath = "jar:file://" + Application.dataPath + "!/assets/"+fileName;
+         if (Application.platform == RuntimePlatform.Android)
+             {
+                 WWW reader = new WWW(filepath);
+                 while (!reader.isDone) { }
+                 string jsonString = reader.text;
+                    LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(jsonString);
+            // Debug.Log(dataAsJson);
+            for (int i = 0; i < loadedData.items.Length; i++)
+            {
+                localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
+            }
+             }
+#endif
+
+
         isReady = true;
         Debug.Log("IS READY DUDE");
     }

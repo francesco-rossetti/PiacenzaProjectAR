@@ -1,5 +1,11 @@
 {
     "items":[
-        {"key":"language_field","value":"Language:"}, {"key":"howtouse_btn","value":"How to use"}
+        {"key":"language_field","value":"Language:"}, {"key":"howtouse_btn","value":"How to use"},
+        {"key":"HowToUse_field1","value":"Insert text en here"}, {"key":"AllMonument_btn","value":"All Monument"},
+        {"key":"HowToUse_field2","value":"Insert text en here"}, {"key":"Gallery_btn","value":"Gallery"},
+        {"key":"HowToUse_title","value":"How To Use"},
+        {"key":"AboutUs_field","value":"Insert text en here"}, {"key":"AboutUs_title","value":"About Us"},
+        {"key":"downloadMap_btn","value":"Download The Map"},
+        {"key":"AboutUs_btn","value":"About Us"}
     ]
 }

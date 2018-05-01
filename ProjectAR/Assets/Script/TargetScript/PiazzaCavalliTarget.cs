@@ -5,7 +5,6 @@ using Vuforia;
 
 public class PiazzaCavalliTarget : MonoBehaviour, ITrackableEventHandler
 {
-
     private GameObject GameManager;
     private void Start()
     {
