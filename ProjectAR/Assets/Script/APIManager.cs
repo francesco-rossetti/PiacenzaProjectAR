@@ -30,8 +30,9 @@ public class APIManager
         }
     }
 
-    public Field GetField(int id, string lang)
+    public Field GetField(int id)
     {
+        string lang = PlayerPrefs.GetString("Language");
         ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
         WebRequest request = (WebRequest)WebRequest.Create(new Uri(api + "/api/getField?idmon=" + id + "&lang=" + lang));
         request.ContentType = "application/json";
@@ -43,7 +44,7 @@ public class APIManager
             using (Stream stream = response.GetResponseStream())
             {
                 StreamReader sr = new StreamReader(stream);
-                Field jsonDoc = (Field)Field.CreateFromJSON(sr.ReadToEnd());
+                Field jsonDoc = Field.FromJSON(sr.ReadToEnd());
                 return jsonDoc;
             }
         }
@@ -65,32 +66,15 @@ public class Monument
 public class Field
 {
     public string status;
-    public Dictionary<string, string> keys;
-    public static object CreateFromJSON(string jsonString)
+    public BufferItem[] result;
+    public static Field FromJSON(string jsonString)
     {
-        var dess = JsonUtility.FromJson<Field>(jsonString);
-        dess.keys = BufferJson.CreateFromJSON(jsonString);
-        return dess;
+        return JsonUtility.FromJson<Field>(jsonString);
     }
 }
+
 
 [Serializable]
-public class BufferJson
-{
-    public BufferItem[] result;
-    public static Dictionary<string, string> CreateFromJSON(string jsonString)
-    {
-        Dictionary<string, string> keys = new Dictionary<string, string>();
-        BufferJson des = JsonUtility.FromJson<BufferJson>(jsonString);
-        for (int i = 0; i < des.result.Length; i++)
-        {
-            keys.Add("field_" + des.result[i].key, des.result[i].value);
-        }
-
-        return keys;
-    }
-}
-
 public class BufferItem
 {
     public string key;

@@ -125,7 +125,7 @@ server.route({
                     else
                     {
                         if(rowcount == 0)
-                            reply({ status: "ok", result: "Err003" });
+                            reply({ status: "ok", result: [{ key: "error", value: "Err003"}] });
                         else
                             reply({ status: "ok", result: fid });
                     }
