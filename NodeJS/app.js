@@ -125,7 +125,7 @@ server.route({
                     else
                     {
                         if(rowcount == 0)
-                            reply({ status: "ok", result: [{ key: "error", value: "Err003"}] });
+                            reply({ status: "ok", result: [{ key: "field_1", value: "Err003"}, { key: "field_2", value: "Err003"}, { key: "field_3", value: "Err003"}] });
                         else
                             reply({ status: "ok", result: fid });
                     }
@@ -135,7 +135,7 @@ server.route({
                     var Row = {};
                     col.forEach(function(elem){
                         if(elem.metadata.colName == "FIELD")
-                            Row["key"] = elem.value;
+                            Row["key"] = "field_" + elem.value;
                         else
                             Row["value"] = elem.value;
                     });
