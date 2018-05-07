@@ -109,6 +109,46 @@ server.route({
 
 server.route({
     method: "GET",
+    path: "/api/getURL",
+    handler:function(request, reply){
+        var Response = [];
+        var connection = new Connection(config);
+
+        connection.on("connect", function(err){
+            if(err)
+                reply({ status: "ko", result: err });
+            else
+            {
+                var idmon = null;
+                var Request = new Requests("EXEC GETURL @ID", function(err, rowcount){
+                    var Response = [];
+                    if(err)
+                        reply({ status: "ko", result: err });
+                    else
+                    {
+                        if(rowcount == 0)
+                            reply({ status: "ok", result: "Err005" });
+                        else
+                            reply({ status: "ok", result: idmon });
+                    }
+                });
+
+                Request.on("row", function(col){
+                    col.forEach(function(elem){
+                        idmon = elem.value;
+                    });
+                });
+        
+                Request.addParameter("ID", Types.Int, request.query.idmon);
+            
+                connection.execSql(Request);
+            }
+        });
+    }
+});
+
+server.route({
+    method: "GET",
     path: "/api/getField",
     handler:function(request, reply){
         var connection = new Connection(config);

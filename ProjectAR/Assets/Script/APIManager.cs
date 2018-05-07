@@ -30,6 +30,25 @@ public class APIManager
         }
     }
 
+    public Monument GetMonumentURL(int id)
+    {
+        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+        WebRequest request = (WebRequest)WebRequest.Create(new Uri(api + "/api/getURL?idmon=" + id));
+        request.ContentType = "application/json";
+        request.Method = "GET";
+
+        using (WebResponse response = request.GetResponse())
+        {
+            // Get a stream representation of the HTTP web response:
+            using (Stream stream = response.GetResponseStream())
+            {
+                StreamReader sr = new StreamReader(stream);
+                Monument jsonDoc = (Monument)Monument.CreateFromJSON(sr.ReadToEnd());
+                return jsonDoc;
+            }
+        }
+    }
+
     public Field GetField(int id)
     {
         string lang = PlayerPrefs.GetString("Language");
