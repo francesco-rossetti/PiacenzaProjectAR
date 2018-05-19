@@ -6,6 +6,7 @@
         {"key":"HowToUse_title","value":"Come Si Usa"},
         {"key":"AboutUs_field","value":"Inserire text it qui"}, {"key":"AboutUs_title","value":"About Us"},
         {"key":"downloadMap_btn","value":"Scarica la mappa"},
-        {"key":"AboutUs_btn","value":"About Us"}
+        {"key":"AboutUs_btn","value":"About Us"},
+        {"key":"Setting_btn","value":"Impostazioni"}
     ]
 }

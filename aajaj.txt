@@ -1,0 +1,4 @@
+Avvio --> Ricerca app simili
+Gantt prima diagramma
+Diagramma interfunzionale specifico con NODE
+Gantt Ore

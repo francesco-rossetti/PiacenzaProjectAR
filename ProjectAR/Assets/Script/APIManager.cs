@@ -9,10 +9,15 @@ using UnityEngine.Networking;
 
 public class APIManager
 {
-    private string api = "https://projectar.azurewebsites.net";
+    private string api;
 
-    public Monument GetMonumentName(int id)
+    public APIManager()
     {
+        api = PlayerPrefs.GetString("api");
+    }
+    public Monument GetMonumentName()
+    {
+        int id = PlayerPrefs.GetInt("idMonument");
         ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
         WebRequest request = (WebRequest)WebRequest.Create(new Uri(api + "/api/getMonumentName?idmon=" + id));
         request.ContentType = "application/json";
@@ -30,8 +35,9 @@ public class APIManager
         }
     }
 
-    public Monument GetMonumentURL(int id)
+    public Monument GetMonumentURL()
     {
+        int id = PlayerPrefs.GetInt("idMonument");
         ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
         WebRequest request = (WebRequest)WebRequest.Create(new Uri(api + "/api/getURL?idmon=" + id));
         request.ContentType = "application/json";
@@ -49,8 +55,9 @@ public class APIManager
         }
     }
 
-    public Field GetField(int id)
+    public Field GetField()
     {
+        int id = PlayerPrefs.GetInt("idMonument");
         string lang = PlayerPrefs.GetString("Language");
         ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
         WebRequest request = (WebRequest)WebRequest.Create(new Uri(api + "/api/getField?idmon=" + id + "&lang=" + lang));

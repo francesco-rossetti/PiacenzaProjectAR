@@ -9,10 +9,12 @@ public class Manager : ChangeSceneManager
     // Use this for initialization
     public Manager instance;
 
+    private APIManager api;
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
-
+    private AndroidJavaObject currentActivity;
+    private string ToastString;
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +28,13 @@ public class Manager : ChangeSceneManager
     {
         PlayerPrefs.SetInt("idMonument", 0);
         dragDistance = Screen.height * 5 / 100; //dragDistance is 15% height of the screen
+        api = new APIManager();
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+            currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+        }
+
     }
 
     void Update()
@@ -52,6 +61,11 @@ public class Manager : ChangeSceneManager
                             GoToScene("SpecScene");
 
                         }
+                        else
+                        {
+                            ToastString = "Selezionare un immagine"; //Lingua
+                            showToastOnUiThread();
+                        }
                     }
                     fp = touch.position;
                 }
@@ -65,4 +79,50 @@ public class Manager : ChangeSceneManager
         }
 
     } //Check for the swipe UP
+
+    public void MapsButton()
+    {
+        Monument ApiTitle = api.GetMonumentURL();
+        if (ApiTitle.status == "ok")
+        {
+            if (ApiTitle.result != "Err005")
+                Application.OpenURL(ApiTitle.result);
+            else
+            {
+                if (Application.platform == RuntimePlatform.Android)
+                {
+                    ToastString = "Errore selezione immagine"; //Lingua
+                    showToastOnUiThread();
+                }
+            }
+        }
+        else
+        {
+            //TODO: gestiscila come più ti piace
+        }
+    }
+    void showToastOnUiThread()
+    {
+          //Get the value of element, in this case currentActivity
+
+        //the showToast which we pass as parameter here is a method which we will write next.
+        currentActivity.Call("runOnUiThread", new AndroidJavaRunnable(showToast));
+    }
+    void showToast()
+    {
+        Debug.Log("Running on UI thread");
+        AndroidJavaObject context = currentActivity.Call<AndroidJavaObject>("getApplicationContext"); //Get the application context
+        /*
+         * AndroidJavaClass --> It is the class, NOT THE INSTANCE
+         * AndroidJavaObject --> It is The instance
+         */
+        //https://developer.android.com/reference/android/widget/Toast
+        AndroidJavaClass Toast = new AndroidJavaClass("android.widget.Toast"); //Instantiate Toast Java Class
+        AndroidJavaObject javaString = new AndroidJavaObject("java.lang.String", ToastString);  //Instantiate the string ToastString as JavaString
+        AndroidJavaObject toast = Toast.CallStatic<AndroidJavaObject>("makeText", context, javaString, Toast.GetStatic<int>("LENGTH_SHORT"));//Call makeText Method( context,string,length)
+
+        toast.Call("show"); 
+
+
+    }
 }

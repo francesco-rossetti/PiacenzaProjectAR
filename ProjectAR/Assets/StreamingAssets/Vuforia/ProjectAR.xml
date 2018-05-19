@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Duomo" size="1.000000 1.000000" />
-    <ImageTarget name="TargetPiazzaCavalli" size="1.000000 1.000000" />
-    <ImageTarget name="TargetDuomo" size="1.000000 1.000000" />
+    <ImageTarget name="S_Savino" size="1.000000 1.000000" />
+    <ImageTarget name="S_Antonio" size="1.000000 0.946667" />
+    <ImageTarget name="RicciOddi" size="1.000000 1.000000" />
+    <ImageTarget name="P_Farnese" size="1.000000 1.000000" />
+    <ImageTarget name="P_Cavalli" size="1.000000 1.000000" />
+    <ImageTarget name="Duomo" size="1.000000 1.120205" />
   </Tracking>
 </QCARConfig>

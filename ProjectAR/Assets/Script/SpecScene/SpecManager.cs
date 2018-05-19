@@ -20,16 +20,15 @@ public class SpecManager : ChangeSceneManager {
     // Use this for initialization
     private GameObject Variable;
     private APIManager Api;
-    int idMonument;
     void Start () {
-        idMonument = 1; // PlayerPrefs.GetInt("iDMonument");
+
         Api = new APIManager();
         Title();
         Field();
     }
     void Title()
     {   
-        Monument ApiTitle = Api.GetMonumentName(idMonument);
+        Monument ApiTitle = Api.GetMonumentName();
         if (ApiTitle.status == "ok")
         {
             title.text = ApiTitle.result;
@@ -41,7 +40,7 @@ public class SpecManager : ChangeSceneManager {
     }
     void Field()
     {
-        Field ApiField = Api.GetField(idMonument);
+        Field ApiField = Api.GetField();
         if (ApiField.status == "ok")
         {
             Dictionary<string, string> Result = new Dictionary<string, string>();
@@ -60,21 +59,5 @@ public class SpecManager : ChangeSceneManager {
         }
     }
 
-    void URL()
-    {
-        Monument ApiTitle = Api.GetMonumentURL(idMonument);
-        if (ApiTitle.status == "ok")
-        {
-            if (ApiTitle.result != "Err005")
-                Application.OpenURL(ApiTitle.result);
-            else
-            {
-                //TODO: gestiscila come più ti piace
-            }
-        }
-        else
-        {
-            //TODO: gestiscila come più ti piace
-        }
-    }
+
 }
