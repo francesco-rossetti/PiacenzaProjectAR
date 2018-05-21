@@ -1,10 +1,16 @@
 {
     "items":[
-        {"key":"language_field","value":"Lingua"}, {"key":"howtouse_btn","value":"Come si usa"},
-        {"key":"HowToUse_field1","value":"Per visualizzare un modello 3D inquadra l'immagine presente sulla piantina"}, {"key":"AllMonument_btn","value":"Tutti i monumenti"},
-        {"key":"HowToUse_field2","value":"Esegui uno swipe Up mentre inquadri un immagine per accedere ai dettagli del monumeto"}, {"key":"Gallery_btn","value":"Galleria"},
+        {"key":"language_field","value":"Lingua"},
         {"key":"HowToUse_title","value":"Come Si Usa"},
-        {"key":"AboutUs_field","value":"Inserire text it qui"}, {"key":"AboutUs_title","value":"About Us"},
+        {"key":"howtouse_btn","value":"Come si usa"},
+        {"key":"HowToUse_field1","value":"Per visualizzare un modello 3D inquadra l'immagine presente sulla piantina"},
+        {"key":"HowToUse_field2","value":"Esegui uno swipe Up mentre inquadri un immagine per accedere ai dettagli del monumeto"},
+        {"key":"AllMonument_Title","value":"Tutti i monumenti"},
+        {"key":"AllMonument_btn","value":"Tutti i monumenti"},
+        {"key":"Gallery_title","value":"Galleria"},
+        {"key":"Gallery_btn","value":"Galleria"},
+        {"key":"AboutUs_title","value":"About Us"},
+        {"key":"AboutUs_field","value":"Inserire text it qui"},
         {"key":"downloadMap_btn","value":"Scarica la mappa"},
         {"key":"AboutUs_btn","value":"About Us"},
         {"key":"Setting_btn","value":"Impostazioni"}
