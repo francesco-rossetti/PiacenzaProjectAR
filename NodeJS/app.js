@@ -206,7 +206,7 @@ server.route({
                 else
                 {
                     var fid = [];
-                    var Request = new Requests("INSERT INTO MONUMENTO (TITLE) VALUES(@DESC)", function(err, rowcount){
+                    var Request = new Requests("INSERT INTO MONUMENTO (TITLE, URLMAPS) VALUES(@DESC, @URLMAPS)", function(err, rowcount){
                         if(err)
                             reply({ status: "ko", result: err });
                         else
@@ -219,6 +219,7 @@ server.route({
                     });
             
                     Request.addParameter("DESC", Types.VarChar, request.payload.title);
+                    Request.addParameter("URLMAPS", Types.VarChar, request.payload.url);
                 
                     connection.execSql(Request);
                 }
@@ -241,7 +242,7 @@ server.route({
                 else
                 {
                     var fid = [];
-                    var Request = new Requests("UPDATE MONUMENTO SET TITLE = @DESC WHERE IDMONUMENTO = @ID", function(err, rowcount){
+                    var Request = new Requests("UPDATE MONUMENTO SET TITLE = @DESC, URLMAPS = @URLMAPS WHERE IDMONUMENTO = @ID", function(err, rowcount){
                         if(err)
                             reply({ status: "ko", result: err });
                         else
@@ -254,6 +255,7 @@ server.route({
                     });
             
                     Request.addParameter("DESC", Types.VarChar, request.payload.title);
+                    Request.addParameter("URLMAPS", Types.VarChar, request.payload.url);
                     Request.addParameter("ID", Types.Int, request.payload.idmon);
                 
                     connection.execSql(Request);
