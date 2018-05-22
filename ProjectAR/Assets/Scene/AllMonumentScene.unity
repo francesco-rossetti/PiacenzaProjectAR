@@ -3701,7 +3701,7 @@ Prefab:
       objectReference: {fileID: 2093543388}
     - target: {fileID: 11429214, guid: b95be68355f9c2440be3969316a2e27b, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BroadcastMessage
+      value: GoToScene
       objectReference: {fileID: 0}
     - target: {fileID: 11429214, guid: b95be68355f9c2440be3969316a2e27b, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
