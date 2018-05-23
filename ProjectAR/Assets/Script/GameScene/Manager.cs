@@ -28,7 +28,7 @@ public class Manager : ChangeSceneManager
     {
         PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
         PlayerPrefs.SetInt("idMonument", 0);
-        dragDistance = Screen.height * 15 / 100; //dragDistance is 5% height of the screen
+        dragDistance = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
         api = new APIManager();
         if (Application.platform == RuntimePlatform.Android)
         {
