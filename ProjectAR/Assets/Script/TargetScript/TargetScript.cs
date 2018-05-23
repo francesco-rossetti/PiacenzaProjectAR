@@ -18,9 +18,6 @@ public class TargetScript : MonoBehaviour {
         {
             PlayerPrefs.SetInt("idMonument", idMonument);
         }
-        else
-        {
-            PlayerPrefs.SetInt("idMonument", 0);
-        }
+
     }
 }

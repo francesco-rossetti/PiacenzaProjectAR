@@ -71,7 +71,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 53
+  controlID: 92
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 613, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 101
+  controlID: 61
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -266,14 +266,14 @@ MonoBehaviour:
     height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 82.96460149859584
+  lastFramingTime: 330.665768621722
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.5606695, y: -0.66349673, z: -2.6865728}
+    m_Target: {x: 1.1561182, y: -0.3261838, z: -0.8035228}
     speed: 2
-    m_Value: {x: 0.5606695, y: -0.66349673, z: -2.6865728}
+    m_Value: {x: 1.1561182, y: -0.3261838, z: -0.8035228}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -301,13 +301,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.45461193, y: 0.26407138, z: -0.14317112, w: -0.8385084}
+    m_Target: {x: 0.053204786, y: 0.88987887, z: -0.44012827, w: 0.107573055}
     speed: 2
-    m_Value: {x: -0.45461193, y: 0.26407138, z: -0.14317112, w: -0.83850837}
+    m_Value: {x: 0.053204786, y: 0.88987887, z: -0.44012827, w: 0.107573055}
   m_Size:
-    m_Target: 2.208113
+    m_Target: 6.394966
     speed: 2
-    m_Value: 2.208113
+    m_Value: 6.394966
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1016,8 +1016,7 @@ MonoBehaviour:
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
-  m_ExpandedScenes:
-  - GameScene
+  m_ExpandedScenes: []
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
