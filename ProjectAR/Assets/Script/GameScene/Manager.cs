@@ -14,7 +14,6 @@ public class Manager : ChangeSceneManager
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
     private AndroidJavaObject currentActivity;
-    private AndroidJavaClass UnityPlayer;
     private string ToastString;
     private void Awake()
     {
@@ -29,18 +28,19 @@ public class Manager : ChangeSceneManager
     {
         PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
         PlayerPrefs.SetInt("idMonument", 0);
-        dragDistance = Screen.height * 5 / 100; //dragDistance is 15% height of the screen
+        dragDistance = Screen.height * 15 / 100; //dragDistance is 5% height of the screen
         api = new APIManager();
         if (Application.platform == RuntimePlatform.Android)
         {
             AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+            currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
         }
 
     }
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "gameScene")
+        if (SceneManager.GetActiveScene().name == "GameScene")
         {
             if (Input.touchCount == 1) // user is touching the screen with a single touch
             {
@@ -58,9 +58,7 @@ public class Manager : ChangeSceneManager
 
                         if (lp.y > fp.y && PlayerPrefs.GetInt("idMonument") != 0)  //Move Up
                         {
-
                             GoToScene("SpecScene");
-
                         }
                         else
                         {
@@ -105,7 +103,7 @@ public class Manager : ChangeSceneManager
     void showToastOnUiThread()
     {
         //Get the value of element, in this case currentActivity
-        currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+      
         //the showToast which we pass as parameter here is a method which we will write next.
         currentActivity.Call("runOnUiThread", new AndroidJavaRunnable(showToast));
     }
