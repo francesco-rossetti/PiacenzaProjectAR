@@ -40,70 +40,83 @@ public class Manager : ChangeSceneManager
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene")
+        if (Input.touchCount == 1) // user is touching the screen with a single touch
         {
-            if (Input.touchCount == 1) // user is touching the screen with a single touch
+            Touch touch = Input.GetTouch(0); // get the touch
+            if (touch.phase == TouchPhase.Began) //check for the first touch
             {
-                Touch touch = Input.GetTouch(0); // get the touch
-                if (touch.phase == TouchPhase.Began) //check for the first touch
-                {
-                    fp = touch.position;
-                    lp = touch.position;
-                }
-                else if (touch.phase == TouchPhase.Moved) // update the last position based on where they moved
-                {
-                    lp = touch.position;
-                    if (Mathf.Abs(lp.y - fp.y) > dragDistance)
-                    {
-
-                        if (lp.y > fp.y && PlayerPrefs.GetInt("idMonument") != 0)  //Move Up
-                        {
-                            GoToScene("SpecScene");
-                        }
-                        else
-                        {
-                            ToastString = "Selezionare un immagine"; //Lingua
-                            showToastOnUiThread();
-                        }
-                    }
-                    fp = touch.position;
-                }
-                //else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
-                //{
-                //    if(isDrag)
-
-                //    isDrag = false;
-                //}
+                fp = touch.position;
+                lp = touch.position;
             }
-        }
+            else if (touch.phase == TouchPhase.Moved) // update the last position based on where they moved
+            {
+                lp = touch.position;
+                if (Mathf.Abs(lp.y - fp.y) > dragDistance)
+                {
 
+                    if (lp.y > fp.y && PlayerPrefs.GetInt("idMonument") != 0)  //Move Up
+                    {
+                        GoToScene("SpecScene");
+                    }
+                    else
+                    {
+                        ToastString = LocalizationManager.instance.GetLocalizedValue("Manager_Err");//"Errore selezione immagine"; 
+                        showToastOnUiThread();
+                    }
+                }
+                fp = touch.position;
+            }
+            //else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
+            //{
+            //    if(isDrag)
+
+            //    isDrag = false;
+            //}
+        }
     } //Check for the swipe UP
 
     public void MapsButton()
     {
-        Monument ApiTitle = api.GetMonumentURL();
-        if (ApiTitle.status == "ok")
+        if (PlayerPrefs.GetInt("idMonument") != 0)
         {
-            if (ApiTitle.result != "Err005")
-                Application.OpenURL(ApiTitle.result);
+            Monument ApiTitle = api.GetMonumentURL();
+            if (ApiTitle.status == "ok")
+            {
+                if (ApiTitle.result != "Err005")
+                    Application.OpenURL(ApiTitle.result);
+                else
+                {
+                    if (Application.platform == RuntimePlatform.Android)
+                    {
+                        ToastString = "Err005"; //Lingua
+                        showToastOnUiThread();
+                    }
+                }
+
+            }
             else
             {
                 if (Application.platform == RuntimePlatform.Android)
                 {
-                    ToastString = "Errore selezione immagine"; //Lingua
+                    ToastString = "err status";
                     showToastOnUiThread();
                 }
             }
         }
         else
         {
-            //TODO: gestiscila come più ti piace
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                ToastString = LocalizationManager.instance.GetLocalizedValue("Manager_Err");//"Errore selezione immagine"; 
+                //ToastString = "Errore selezione immagine"; //Lingua
+                showToastOnUiThread();
+            }
         }
     }
     void showToastOnUiThread()
     {
         //Get the value of element, in this case currentActivity
-      
+
         //the showToast which we pass as parameter here is a method which we will write next.
         currentActivity.Call("runOnUiThread", new AndroidJavaRunnable(showToast));
     }
@@ -121,8 +134,7 @@ public class Manager : ChangeSceneManager
         AndroidJavaObject javaString = new AndroidJavaObject("java.lang.String", ToastString);  //Instantiate the string ToastString as JavaString
         AndroidJavaObject toast = Toast.CallStatic<AndroidJavaObject>("makeText", context, javaString, Toast.GetStatic<int>("LENGTH_SHORT"));//Call makeText Method( context,string,length)
 
-        toast.Call("show"); 
-
+        toast.Call("show");
 
     }
 }

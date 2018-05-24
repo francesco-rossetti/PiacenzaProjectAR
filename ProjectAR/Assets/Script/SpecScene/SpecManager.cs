@@ -8,15 +8,6 @@ public class SpecManager : ChangeSceneManager {
     public Text title;
     public Text[] field;
     public Image[] image;
-    /*
-     * Err001 language not found
-     * Err002 title not found
-     * Err002a Connection error title
-     * Err003 field not found
-     * Err003a Connection error field
-     * Err004 insert/update/delete error
-     * Err005 museum url not found
-     */
     // Use this for initialization
     private GameObject Variable;
     private APIManager Api;

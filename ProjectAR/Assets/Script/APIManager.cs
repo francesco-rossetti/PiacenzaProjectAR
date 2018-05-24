@@ -9,6 +9,16 @@ using UnityEngine.Networking;
 
 public class APIManager
 {
+    /*
+    * ErrStatus status
+    * Err001 language not found
+    * Err002 title not found
+    * Err002a Connection error title
+    * Err003 field not found
+    * Err003a Connection error field
+    * Err004 insert/update/delete error
+    * Err005 museum url not found
+    */
     private string api;
 
     public APIManager()
@@ -106,3 +116,23 @@ public class BufferItem
     public string key;
     public string value;
 }
+
+/*
+{
+    "status": "ok",
+    "result": [
+        {
+            "key": "field_1",
+            "value": "Err003"
+        },
+        {
+            "key": "field_2",
+            "value": "Err003"
+        },
+        {
+            "key": "field_3",
+            "value": "Err003"
+        }
+    ]
+}
+*/

@@ -13,6 +13,8 @@
         {"key":"AboutUs_field","value":"Insert text en here"},
         {"key":"downloadMap_btn","value":"Download The Map"},
         {"key":"AboutUs_btn","value":"About Us"},
-        {"key":"Setting_btn","value":"Setting"}
+        {"key":"Setting_btn","value":"Setting"},
+        {"key":"Manager_Err","value":"Select image"}
+        
     ]
 }
