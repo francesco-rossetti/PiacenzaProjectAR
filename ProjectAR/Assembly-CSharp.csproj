@@ -71,6 +71,8 @@
     <Compile Include="Assets\Script\Localization\LocalizedText.cs" />
     <Compile Include="Assets\Script\Localization\StartupManager.cs" />
     <Compile Include="Assets\Script\SettingScene\SettingManager.cs" />
+    <Compile Include="Assets\Script\SpecScene\SpecImage.cs" />
+    <Compile Include="Assets\Script\SpecScene\SpecImageManager.cs" />
     <Compile Include="Assets\Script\SpecScene\SpecManager.cs" />
     <Compile Include="Assets\Script\TargetScript\TargetScript.cs" />
     <Compile Include="Assets\UITween\Prefabs\Click Effect Pref\ClickedWaveAnimation.cs" />

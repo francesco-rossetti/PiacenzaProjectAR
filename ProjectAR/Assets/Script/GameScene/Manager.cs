@@ -6,24 +6,13 @@ using UnityEngine.SceneManagement;
 public class Manager : ChangeSceneManager
 {
 
-    // Use this for initialization
-    public Manager instance;
-
     private APIManager api;
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
     private AndroidJavaObject currentActivity;
     private string ToastString;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-            Destroy(gameObject);
-    }
+
     void Start()
     {
         PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
