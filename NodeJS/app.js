@@ -229,8 +229,8 @@ server.route({
 });
 
 server.route({
-    method: "POST",
-    path: "/api/updateMuseum",
+    method: "PUT",
+    path: "/api/updateMuseum/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -254,9 +254,9 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("DESC", Types.VarChar, request.payload.title);
-                    Request.addParameter("URLMAPS", Types.VarChar, request.payload.url);
-                    Request.addParameter("ID", Types.Int, request.payload.idmon);
+                    Request.addParameter("DESC", Types.VarChar, request.query.title);
+                    Request.addParameter("URLMAPS", Types.VarChar, request.query.url);
+                    Request.addParameter("ID", Types.Int, request.params.id);
                 
                     connection.execSql(Request);
                 }
@@ -266,8 +266,8 @@ server.route({
 });
 
 server.route({
-    method: "POST",
-    path: "/api/deleteMuseum",
+    method: "DELETE",
+    path: "/api/deleteMuseum/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -291,7 +291,7 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("ID", Types.Int, request.payload.idmon);
+                    Request.addParameter("ID", Types.Int, request.params.id);
                 
                     connection.execSql(Request);
                 }
@@ -340,8 +340,8 @@ server.route({
 });
 
 server.route({
-    method: "POST",
-    path: "/api/updateDetails",
+    method: "PUT",
+    path: "/api/updateDetails/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -365,11 +365,11 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("DESC", Types.Text, request.payload.descrizione);
-                    Request.addParameter("FIELD", Types.Int, request.payload.field);
-                    Request.addParameter("LANG", Types.VarChar, request.payload.lang);
-                    Request.addParameter("IDM", Types.Int, request.payload.idmon);
-                    Request.addParameter("ID", Types.Int, request.payload.idesc);
+                    Request.addParameter("DESC", Types.Text, request.query.descrizione);
+                    Request.addParameter("FIELD", Types.Int, request.query.field);
+                    Request.addParameter("LANG", Types.VarChar, request.query.lang);
+                    Request.addParameter("IDM", Types.Int, request.query.idmon);
+                    Request.addParameter("ID", Types.Int, request.params.id);
                 
                     connection.execSql(Request);
                 }
@@ -380,8 +380,8 @@ server.route({
 });
 
 server.route({
-    method: "POST",
-    path: "/api/deleteDetails",
+    method: "DELETE",
+    path: "/api/deleteDetails/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -405,7 +405,7 @@ server.route({
                         }
                     });
 
-                    Request.addParameter("ID", Types.Int, request.payload.idesc);
+                    Request.addParameter("ID", Types.Int, request.params.id);
                 
                     connection.execSql(Request);
                 }
