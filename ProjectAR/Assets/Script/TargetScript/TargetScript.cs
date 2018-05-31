@@ -26,6 +26,7 @@ public class TargetScript : MonoBehaviour, ITrackableEventHandler
      newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             PlayerPrefs.SetInt("idMonument", idMonument);
+            PlayerPrefs.SetInt("APIID", idMonument);
         }
         else
         {

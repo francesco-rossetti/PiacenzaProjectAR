@@ -16,6 +16,7 @@ public class SpecImageManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        GalleryDictionary = new Dictionary<string, Sprite>();
         foreach (SpecDictionaryClass it in items)
         {
             GalleryDictionary.Add(it.Key, it.Image);

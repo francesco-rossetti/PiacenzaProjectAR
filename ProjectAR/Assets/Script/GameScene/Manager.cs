@@ -44,7 +44,7 @@ public class Manager : ChangeSceneManager
                 {
 
                     if (lp.y > fp.y && PlayerPrefs.GetInt("idMonument") != 0)  //Move Up
-                    {
+                    {                      
                         GoToScene("SpecScene");
                     }
                     else
