@@ -1738,41 +1738,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - Key: Duomo_1
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: 7b13c156a3f2c2d4793bdc5d2699bab3, type: 3}
   - Key: Duomo_2
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: 0bd09f16977ea394ea0b48657506be67, type: 3}
   - Key: Duomo_3
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
-  - Key: 
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: 86ff3de3feabd1645811b080d2cd8af7, type: 3}
+  - Key: Palazzo Farnese_1
+    Image: {fileID: 21300000, guid: 983c0455239ecfe4b82e2d4533c44025, type: 3}
+  - Key: Palazzo Farnese_2
+    Image: {fileID: 21300000, guid: 783d0a8d9e9016e40a53e816885948ff, type: 3}
+  - Key: Palazzo Farnese_3
+    Image: {fileID: 21300000, guid: 9a9d24879d5b44248904591bcfb3fedf, type: 3}
+  - Key: Piazza Cavalli_1
+    Image: {fileID: 21300000, guid: 87befa6d7de7f954e9f5d0be0d97a55b, type: 3}
+  - Key: Piazza Cavalli_2
+    Image: {fileID: 21300000, guid: 66065efb04ce3044a8c02421140ce9be, type: 3}
+  - Key: Piazza Cavalli_3
+    Image: {fileID: 21300000, guid: ec7446af774a2564c847f76c77cb7f4f, type: 3}
+  - Key: Galleria D'Arte Moderna Ricci Oddi_1
+    Image: {fileID: 21300000, guid: c8ff8e8bba76bae4d8b3f00bf9a99584, type: 3}
+  - Key: Galleria D'Arte Moderna Ricci Oddi_2
+    Image: {fileID: 21300000, guid: f02795a357d2cae4f95fae6a69bef7f2, type: 3}
+  - Key: Galleria D'Arte Moderna Ricci Oddi_3
+    Image: {fileID: 21300000, guid: efe858ebc173e0141a1fe3e4ae14922c, type: 3}
+  - Key: Piazza Sant'Antonino_1
+    Image: {fileID: 21300000, guid: 73067c5fd1b17a14890c94cbe172317a, type: 3}
+  - Key: Piazza Sant'Antonino_2
+    Image: {fileID: 21300000, guid: 55624a70642d8114cb466808ace273af, type: 3}
+  - Key: Piazza Sant'Antonino_3
+    Image: {fileID: 21300000, guid: 9dcc14ded03a8b842a18041164571043, type: 3}
+  - Key: Chiesa di San Savino_1
+    Image: {fileID: 21300000, guid: 5b6c90bd6a24b3f44b048b02aba597b4, type: 3}
+  - Key: Chiesa di San Savino_2
+    Image: {fileID: 21300000, guid: 5fae1e39d0d7bcb43abfe576f70bf4f2, type: 3}
+  - Key: Chiesa di San Savino_3
+    Image: {fileID: 21300000, guid: 85791fe04ed0f4546956cb3b4cf6272b, type: 3}
 --- !u!1 &987725018
 GameObject:
   m_ObjectHideFlags: 0
