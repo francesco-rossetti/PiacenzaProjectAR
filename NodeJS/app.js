@@ -340,7 +340,7 @@ server.route({
 });
 
 server.route({
-    method: "PUT",
+    method: "POST",
     path: "/api/updateDetails/{id}",
     config: {
         auth: 'simple',
@@ -365,10 +365,10 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("DESC", Types.Text, request.query.descrizione);
-                    Request.addParameter("FIELD", Types.Int, request.query.field);
-                    Request.addParameter("LANG", Types.VarChar, request.query.lang);
-                    Request.addParameter("IDM", Types.Int, request.query.idmon);
+                    Request.addParameter("DESC", Types.Text, request.payload.descrizione);
+                    Request.addParameter("FIELD", Types.Int, request.payload.field);
+                    Request.addParameter("LANG", Types.VarChar, request.payload.lang);
+                    Request.addParameter("IDM", Types.Int, request.payload.idmon);
                     Request.addParameter("ID", Types.Int, request.params.id);
                 
                     connection.execSql(Request);
