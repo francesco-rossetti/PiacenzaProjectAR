@@ -9,6 +9,7 @@ public class SpecImage : MonoBehaviour {
     public string key;
 	void Start () {
         image.sprite=SpecImageManager.instance.GetImage(PlayerPrefs.GetInt("APIID")+"_"+key);
+        image.preserveAspect = true;
 	}
 	
 

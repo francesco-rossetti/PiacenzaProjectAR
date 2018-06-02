@@ -10,11 +10,28 @@
         {"key":"Gallery_title","value":"Gallery"},
         {"key":"Gallery_btn","value":"Gallery"},
         {"key":"AboutUs_title","value":"About Us"},
-        {"key":"AboutUs_field","value":"Insert text en here"},
+        {"key":"AboutUs_field","value":"We are Alex Ergasti and Francesco Rossetti, two students from ISII G. Marconi of Piacenza, passionate since childhood into computer science, into new technologies and fascinated into unlimited augmented reality possibility. We wonder us where we could use this new technology and we thought that we could use to allow virtual visit in our beautiful city. Together with professor Claudio Ferrari we decided which was the best monument or building of Piacenza and we realized a 3D model to allow everyone to see it; thanks to a Piacenza’s guide we found the information about this monument and we inserted both Italian version and English version to reach a greater catchment area."},
         {"key":"downloadMap_btn","value":"Download The Map"},
         {"key":"AboutUs_btn","value":"About Us"},
         {"key":"Setting_btn","value":"Setting"},
-        {"key":"Manager_Err","value":"Select image"}
-        
+        {"key":"Manager_Err","value":"Select image"},
+        {"key":"Duomo_1","value":"Duomo, Outside"},
+        {"key":"Duomo_2","value":"Duomo, Inside"},
+        {"key":"Duomo_3","value":"Duomo, Column"},
+        {"key":"Farnese_1","value":"Palazzo Farnese, Outside"},
+        {"key":"Farnese_2","value":"Palazzo Farnese, Blueprint"},
+        {"key":"Farnese_3","value":"Palazzo Farnese, Outside"},
+        {"key":"RicciOddi_1","value":"Galleria D'Arte Ricci Oddi, Outside"},
+        {"key":"RicciOddi_2","value":"Galleria D'Arte Ricci Oddi, Inside"},
+        {"key":"RicciOddi_3","value":"Galleria D'Arte Ricci Oddi, Inside"},
+        {"key":"Cavalli_1","value":"Piazza Cavalli, Palazzo Gotico"},
+        {"key":"Cavalli_2","value":"Piazza Cavalli"},
+        {"key":"Cavalli_3","value":"Piazza Cavalli"},
+        {"key":"Antonino_1","value":"Chiesa Sant’Antonino, Outside"},
+        {"key":"Antonino_2","value":"Chiesa Sant’Antonino, Inside"},
+        {"key":"Antonino_3","value":"Chiesa Sant’Antonino, Inside"},
+        {"key":"Savino_1","value":"Chiesa di San Savino, Outside"},
+        {"key":"Savino_2","value":"Chiesa di San Savino, Inside"},
+        {"key":"Savino_3","value":"Chiesa di San Savino, Inside"}
     ]
 }
