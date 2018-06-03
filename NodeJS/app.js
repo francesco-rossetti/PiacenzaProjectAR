@@ -367,7 +367,7 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("DESC", Types.Text, request.payload.descrizione);
+                    Request.addParameter("DESC", Types.Text, encodeURI(request.payload.descrizione));
                     Request.addParameter("FIELD", Types.Int, request.payload.field);
                     Request.addParameter("LANG", Types.VarChar, request.payload.lang);
                     Request.addParameter("IDM", Types.Int, request.payload.idmon);
