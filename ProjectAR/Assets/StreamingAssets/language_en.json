@@ -32,6 +32,7 @@
         {"key":"Antonino_3","value":"Chiesa Sant’Antonino, Inside"},
         {"key":"Savino_1","value":"Chiesa di San Savino, Outside"},
         {"key":"Savino_2","value":"Chiesa di San Savino, Inside"},
-        {"key":"Savino_3","value":"Chiesa di San Savino, Inside"}
+        {"key":"Savino_3","value":"Chiesa di San Savino, Inside"},
+        {"key":"DownloadMap_msg","value":"Map Saved"}
     ]
 }

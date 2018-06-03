@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Manager : ChangeSceneManager
 {
-
+    public Texture2D Map;
     private APIManager api;
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
@@ -15,7 +16,7 @@ public class Manager : ChangeSceneManager
 
     void Start()
     {
-        PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
+
         PlayerPrefs.SetInt("idMonument", 0);
         dragDistance = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
         api = new APIManager();
@@ -124,6 +125,19 @@ public class Manager : ChangeSceneManager
         AndroidJavaObject toast = Toast.CallStatic<AndroidJavaObject>("makeText", context, javaString, Toast.GetStatic<int>("LENGTH_SHORT"));//Call makeText Method( context,string,length)
 
         toast.Call("show");
+
+    }
+    public void DownloadMap()
+    {
+        var dir = "/storage/emulated/0/";
+        Directory.CreateDirectory(dir + "Map");
+        File.WriteAllBytes(dir + "Map/Map.jpg",Map.EncodeToJPG());
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            ToastString = LocalizationManager.instance.GetLocalizedValue("DownloadMap_msg");//"Errore selezione immagine";                                                                               //ToastString = "Errore selezione immagine"; //Lingua
+            showToastOnUiThread();
+        }
+
 
     }
 }

@@ -198,7 +198,7 @@ a924c90a95cf65003f662aa5e30abb6b Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 01e6f145049f3a676df6dc247eabf176 Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
-f13c9d9faec4c2d1f204a7ced6fce7a6 Assembly-CSharp.dll:.Manager
+3ecff0e23f1f3aacc8db066438775cc4 Assembly-CSharp.dll:.Manager
 6a479c54bc1c8bd38883709ae7ea017f Assembly-CSharp.dll:.CreateAnimImage
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LocalizationManager
 509f0bd5b2fadcfb66cc6fd5efda511a Assembly-CSharp.dll:.TargetScript
