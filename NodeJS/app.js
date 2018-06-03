@@ -20,7 +20,7 @@ var Types = require("tedious").TYPES;
 const server = new Hapi.Server();
 
 server.connection({
-    host: process.env.HOST || 'localhost',
+    host: process.env.HOST || '192.168.1.2',
     port: process.env.PORT || 8080
 });
 
@@ -176,6 +176,8 @@ server.route({
                     col.forEach(function(elem){
                         if(elem.metadata.colName == "FIELD")
                             Row["key"] = "field_" + elem.value;
+                        else if(elem.metadata.colName == "DESCRIZIONE")
+                            Row["value"] = decodeURI(elem.value);
                         else
                             Row["value"] = elem.value;
                     });
@@ -326,7 +328,7 @@ server.route({
                         }
                     });
             
-                    Request.addParameter("DESC", Types.Text, request.payload.descrizione);
+                    Request.addParameter("DESC", Types.Text, encodeURI(request.payload.descrizione));
                     Request.addParameter("FIELD", Types.Int, request.payload.field);
                     Request.addParameter("LANG", Types.VarChar, request.payload.lang);
                     Request.addParameter("IDM", Types.Int, request.payload.idmon);
