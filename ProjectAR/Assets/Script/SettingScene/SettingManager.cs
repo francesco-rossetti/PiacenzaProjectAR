@@ -9,7 +9,8 @@ public class SettingManager : ChangeSceneManager {
     public Toggle Azure;
     public Toggle LocalHost;
     public InputField lbl_LocalHost;
-    void ChangeSetting(string Scene)
+    public InputField lbl_port;
+    public void ChangeSetting(string Scene)
     {
         if(Azure.isOn)
         {
@@ -18,10 +19,12 @@ public class SettingManager : ChangeSceneManager {
         else if(LocalHost)
         {
             IPAddress IP;
+            int port;
+            bool okp = int.TryParse(lbl_port.text, out port);
             bool ok=IPAddress.TryParse(lbl_LocalHost.text, out IP);
-            if(ok)
+            if(ok || okp)
             {
-                PlayerPrefs.SetString("api", IP.ToString());
+                PlayerPrefs.SetString("api", "http://" + IP.ToString() + ":" + (okp ? port : 80));
             }
             else
             {
@@ -35,9 +38,11 @@ public class SettingManager : ChangeSceneManager {
         if(PlayerPrefs.GetString("api") == "https://projectar.azurewebsites.net")
         {
             Azure.isOn = true;
+            LocalHost.isOn = false;
         }
         else
         {
+            Azure.isOn = false;
             LocalHost.isOn = true;
         }
     }

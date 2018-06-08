@@ -238,7 +238,7 @@ f13c9d9faec4c2d1f204a7ced6fce7a6 Assembly-CSharp.dll:.ChangeSceneManager
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 2117854bcd72c3cb83ffdb7a7769cd4d Assembly-CSharp.dll:.HowToUseManager
 f654d3b0cb6a84a7ca5abda6ae1743d1 Assembly-CSharp.dll:.LanguageIconManager
-f8494dbb5a958f02aff8930c88393175 Assembly-CSharp.dll:.SettingManager
+ab0a2ce4e46121ed0cc34090d9e9010e Assembly-CSharp.dll:.SettingManager
 c3d8adcb36209e5fbbd0e2853796c200 Assembly-CSharp.dll:.EasyTween
 bc79872c81f3cda9be1ec427f70f92aa Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 0561521e336e270e6e5a9c61387cb838 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour

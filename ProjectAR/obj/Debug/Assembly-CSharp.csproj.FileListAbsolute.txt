@@ -164,8 +164,8 @@ E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\Temp\bin\Debug\UnityEngine.UIAut
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\Temp\bin\Debug\UnityEngine.HoloLens.xml
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.dll
 E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.pdb
+E:\Projects\__UNITY\PiacenzaProjectAR\ProjectAR\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
