@@ -196,7 +196,7 @@ server.route({
 
 server.route({
     method: "POST",
-    path: "/api/insertMuseum",
+    path: "/api/insertMonument",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -232,7 +232,7 @@ server.route({
 
 server.route({
     method: "PUT",
-    path: "/api/updateMuseum/{id}",
+    path: "/api/updateMonument/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
@@ -269,7 +269,7 @@ server.route({
 
 server.route({
     method: "DELETE",
-    path: "/api/deleteMuseum/{id}",
+    path: "/api/deleteMonument/{id}",
     config: {
         auth: 'simple',
         handler:function(request, reply){
