@@ -7,7 +7,7 @@ public class StartupManager : MonoBehaviour {
 	// Use this for initialization
 	private IEnumerator Start()
     {
-        PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
+        PlayerPrefs.SetString("api", "http://projectar.rossdev.it");
         while (!LocalizationManager.instance.GetIsReady)
         {
             yield return null;

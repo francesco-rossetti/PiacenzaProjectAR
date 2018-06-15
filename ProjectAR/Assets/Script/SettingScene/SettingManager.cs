@@ -14,7 +14,7 @@ public class SettingManager : ChangeSceneManager {
     {
         if(Azure.isOn)
         {
-            PlayerPrefs.SetString("api", "https://projectar.azurewebsites.net");
+            PlayerPrefs.SetString("api", "http://projectar.rossdev.it");
         }
         else if(LocalHost)
         {
@@ -35,7 +35,7 @@ public class SettingManager : ChangeSceneManager {
     }
     private void Start()
     {
-        if(PlayerPrefs.GetString("api") == "https://projectar.azurewebsites.net")
+        if(PlayerPrefs.GetString("api") == "http://projectar.rossdev.it")
         {
             Azure.isOn = true;
             LocalHost.isOn = false;
